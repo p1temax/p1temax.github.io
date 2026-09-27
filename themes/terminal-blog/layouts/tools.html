@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <div class="page-intro">
+    <h1>{{ .Title }}</h1>
+    <div class="blog-content">{{ .Content }}</div>
+  </div>
+  <div class="card-grid two">
+    {{ range hugo.Data.tools }}
+      <article class="panel">
+        <div class="section-title">
+          <h2>{{ .name }}</h2>
+          <span class="badge badge-tool">tool</span>
+        </div>
+        <p class="muted">{{ .description }}</p>
+        <ul class="feature-list">
+          {{ range .features }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{ with .repo }}<a href="{{ . }}">Repository →</a>{{ end }}
+      </article>
+    {{ end }}
+  </div>
+{{ end }}

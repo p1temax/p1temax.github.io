@@ -1,0 +1,11 @@
+<footer class="footer">
+  <div class="container">
+    <div>
+      <div class="footer-brand">[{{ site.Params.handle | default "user" }}@{{ site.Params.host | default "sh" }}]$</div>
+      <p>{{ site.Params.description }}</p>
+    </div>
+    <div class="legal">
+      <div>© {{ now.Year }} {{ site.Params.name | default site.Title }}.</div>
+    </div>
+  </div>
+</footer>

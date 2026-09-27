@@ -1,0 +1,31 @@
+{{ define "main" }}
+  <div class="page-intro">
+    {{ if eq .Kind "section" }}
+      <h1 class="page-title">{{ .Title }}</h1>
+      <p>{{ .Description | default "Research notes and technical write-ups. Drop a markdown file in content/blog and rebuild." }}</p>
+      <div class="meta">
+        <span class="icon">[{{ site.Params.handle | default "user" }}@blog]$</span> ls -la articles/ | wc -l<br>
+        {{ len .Pages }} articles published
+      </div>
+    {{ else if eq .Kind "taxonomy" }}
+      <h1 class="page-title">{{ .Title }}</h1>
+      <p>{{ len .Pages }} topics</p>
+    {{ else }}
+      <h1 class="page-title">#{{ .Data.Term | default .Title }}</h1>
+      <p>{{ len .Pages }} posts</p>
+    {{ end }}
+  </div>
+  {{ if eq .Kind "taxonomy" }}
+    <div class="tag-cloud">
+      {{ range .Pages }}
+        <a href="{{ .RelPermalink }}">#{{ .Title }}</a>
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="post-grid card-grid two">
+      {{ range .Pages }}
+        {{ partial "post-card.html" . }}
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}

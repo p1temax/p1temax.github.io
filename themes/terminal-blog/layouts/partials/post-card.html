@@ -1,0 +1,17 @@
+<article class="post-card">
+  <div class="card-bar">
+    <span class="dots" aria-hidden="true"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></span>
+    <span>{{ with .File }}{{ .ContentBaseName }}{{ else }}{{ .Title | urlize }}{{ end }}.md</span>
+  </div>
+  <div class="body">
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <div class="meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</div>
+    <p class="muted">{{ .Description | default (.Summary | plainify | truncate 180) }}</p>
+    <div class="tags">
+      {{ range .Params.tags }}
+        <a href="{{ printf "tags/%s/" (. | urlize) | relURL }}">#{{ . }}</a>
+      {{ end }}
+    </div>
+    <div class="cat">&gt; cat {{ with .File }}{{ .ContentBaseName }}{{ else }}{{ .Title | urlize }}{{ end }}.md</div>
+  </div>
+</article>

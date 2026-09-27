@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <div class="page-intro">
+    <h1>About</h1>
+  </div>
+  <div class="panel blog-content">
+    {{ .Content }}
+  </div>
+
+  {{ with hugo.Data.certs }}
+    <h2>Certifications</h2>
+    <div class="card-grid two">
+      {{ range . }}
+        <article class="panel cert">
+          <div class="icon">[ {{ .status | upper }} ]</div>
+          <h3>{{ .title }}</h3>
+          <p class="muted">Issued: {{ .year }}</p>
+          <p class="muted">Provider: {{ .provider }}</p>
+        </article>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}

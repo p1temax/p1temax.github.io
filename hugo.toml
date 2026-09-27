@@ -1,0 +1,47 @@
+baseURL = "https://example.org/"
+locale = "en"
+title = "ada@sh"
+theme = "terminal-blog"
+
+[params]
+  handle = "P1te"
+  host = "sh"
+  name = "P1te"
+  role = "Offensive Security Engineer"
+  description = "Red team work and custom tooling, aimed at the objective."
+  email = "ada@example.com"
+  github = "https://github.com/"
+  twitter = "https://twitter.com/"
+  heroLines = [
+    "Hi, I am p1te",
+    "Penetration tester and Red team operator",
+    "Specialties: Red Teaming, Maldev",
+    "Objective first. The rest is just the path.",
+    "Press ⌘K to search...",
+  ]
+
+[taxonomies]
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS", "SearchIndex"]
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 2
+
+[[menu.main]]
+  name = "Tools"
+  url = "/tools/"
+  weight = 3
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 4

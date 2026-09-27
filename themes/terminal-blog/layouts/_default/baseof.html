@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ site.Language.Lang | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  <div class="site">
+    {{ partial "nav.html" . }}
+    <main>
+      <div class="container">
+        {{ block "main" . }}{{ end }}
+      </div>
+    </main>
+    {{ partial "footer.html" . }}
+  </div>
+  {{ partial "search.html" . }}
+  <script>
+    window.TERMINAL = {
+      searchURL: {{ "search.json" | relURL | jsonify | safeJS }},
+      heroLines: {{ site.Params.heroLines | default (slice) | jsonify | safeJS }}
+    };
+  </script>
+  <script src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>

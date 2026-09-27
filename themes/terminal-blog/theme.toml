@@ -1,0 +1,11 @@
+name = "Terminal Blog"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "Dark terminal-styled blog theme: shell prompt, emerald accent, JetBrains Mono."
+homepage = ""
+tags = ["blog", "dark", "terminal", "personal", "minimal"]
+features = ["blog", "search", "syntax highlighting", "tags"]
+min_version = "0.128.0"
+
+[author]
+  name = "terminal-blog"

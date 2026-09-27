@@ -1,0 +1,29 @@
+[markup]
+  [markup.highlight]
+    style = "autumn"
+    noClasses = false
+    guessSyntax = true
+  [markup.goldmark.renderer]
+    unsafe = false
+  [markup.goldmark.parser]
+    autoHeadingID = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[outputFormats.SearchIndex]
+  mediaType = "application/json"
+  baseName = "search"
+  isPlainText = true
+  notAlternative = true
+
+[outputs]
+  home = ["HTML", "RSS", "SearchIndex"]
+
+[related]
+  threshold = 1
+  includeNewer = true
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ partial "theme-boot.html" . }}
+  <title>{{ partial "prompt.html" . }} not found</title>
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="site">
+    {{ partial "nav.html" . }}
+    <main>
+      <div class="container">
+        <div class="terminal" style="max-width: 36rem; margin: 2rem auto;">
+          <p class="icon">{{ partial "prompt.html" . }} ls</p>
+          <p style="color: #f87171;">ls: no such file or directory</p>
+          <p class="muted">That path is not on this host.</p>
+          <a href="{{ "/" | relURL }}">cd ~</a>
+        </div>
+      </div>
+    </main>
+    {{ partial "footer.html" . }}
+  </div>
+  <script src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>

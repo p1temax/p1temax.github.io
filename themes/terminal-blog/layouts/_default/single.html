@@ -1,0 +1,35 @@
+{{ define "main" }}
+  <article class="article">
+    <div class="progress"></div>
+    <a class="back" href="{{ "blog/" | relURL }}">← Back to all posts</a>
+    <h1>{{ .Title }}</h1>
+    <div class="meta">
+      {{ .Date.Format "Jan 2, 2006" }}
+      · {{ .ReadingTime }} min read
+      {{ range .Params.tags }}
+        · <a href="{{ printf "tags/%s/" (. | urlize) | relURL }}">#{{ . }}</a>
+      {{ end }}
+    </div>
+
+    {{ if in .TableOfContents "<ul>" }}
+      <details class="toc" open>
+        <summary><span class="muted">$</span> cat table-of-contents</summary>
+        {{ .TableOfContents }}
+      </details>
+    {{ end }}
+
+    <div class="blog-content">
+      {{ .Content }}
+    </div>
+
+    {{ $related := site.RegularPages.Related . }}
+    {{ if $related }}
+      <h2>Related</h2>
+      <ul>
+        {{ range first 2 $related }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </article>
+{{ end }}

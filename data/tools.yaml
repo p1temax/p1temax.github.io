@@ -1,0 +1,8 @@
+- name: Fishing-Platform
+  repo: https://github.com/p1temax/Fishing-Platform
+  description: Open-source phishing toolkit for red teams
+  features:
+    - Agents host pages off the main box
+    - Mail tracking and submit webhooks
+    - AI mirrors pages and finds contacts
+
